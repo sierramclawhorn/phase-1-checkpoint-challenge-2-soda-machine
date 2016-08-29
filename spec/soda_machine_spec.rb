@@ -16,10 +16,15 @@ describe SodaMachine do
 
   describe "#find_soda", { find_soda: true } do
     context "when the soda is in the machine" do
-      it "returns the soda the user requested" do
+      it "can find the first soda" do
         expect(soda_machine.find_soda('Pepsi')).to eq(pepsi)
       end
+
+      it "returns the soda the user requested" do
+        expect(soda_machine.find_soda('Coke Zero')).to eq(coke_zero)
+      end
     end
+
     context "when the soda is not available" do
       it "returns nil" do
         expect(soda_machine.find_soda('Surge')).to eq(nil)
