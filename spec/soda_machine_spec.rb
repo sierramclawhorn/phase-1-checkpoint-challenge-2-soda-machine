@@ -41,7 +41,10 @@ describe SodaMachine do
 
     context "when the soda is available to be sold" do
       before(:each) do
-        soda_machine.sell('Coke Zero')
+        @sold_soda = soda_machine.sell('Coke Zero')
+      end
+      it "returns the sold soda" do
+        expect(@sold_soda).to be(coke_zero)
       end
       it "adds the price of the soda sold to the cash" do
         expect(soda_machine.cash).to eq(2.00)
