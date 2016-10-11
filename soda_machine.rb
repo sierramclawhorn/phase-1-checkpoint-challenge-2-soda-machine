@@ -21,8 +21,8 @@ class SodaMachine
 
   def sell(soda_brand)
     if @sodas.include?(soda_brand) == true
-      @cash << @sodas.price
-      @sodas.delete 
+      @cash << Soda.price
+      @sodas.delete(soda_brand)
       @sodas
     else
       nil
