@@ -11,21 +11,18 @@ class SodaMachine
   end
 
   def find_soda(soda_brand)
-    @sodas.first
-    if @sodas == soda_brand
-      @sodas
-    else
-      nil
-    end
+    @sodas.find { |soda| soda_brand == soda.brand }
   end
 
   def sell(soda_brand)
-    if @sodas.include?(soda_brand) == true
-      @cash << Soda.price
-      @sodas.delete(soda_brand)
-      @sodas
-    else
-      nil
+    @sodas.each do |soda| 
+      if soda == soda_brand
+        @cash << soda.price
+        soda.delete
+        soda
+      else
+        nil
+      end
     end
   end
 
